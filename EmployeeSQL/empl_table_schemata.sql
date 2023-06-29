@@ -42,6 +42,9 @@ CREATE TABLE salaries (
 	FOREIGN KEY (emp_no) REFERENCES employees (emp_no)
 );
 
+ALTER TABLE IF EXISTS public.salaries
+    ADD COLUMN salary_id SERIAL PRIMARY KEY
+
 SELECT * 
 FROM salaries
 
@@ -53,7 +56,10 @@ CREATE TABLE dept_emp (
 	FOREIGN KEY (dept_no) REFERENCES departments (dept_no)
  );
 
-SELECT * 
+ALTER TABLE IF EXISTS public.dept_emp
+    ADD COLUMN demp_id SERIAL PRIMARY KEY
+
+SELECT *
 FROM dept_emp
 
 -- Create table for dept_manager.csv (6)
@@ -63,7 +69,10 @@ CREATE TABLE dept_manager (
 	FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
 	FOREIGN KEY (dept_no) REFERENCES departments (dept_no)
  );
- 
+
+ALTER TABLE IF EXISTS public.dept_manager
+    ADD COLUMN mng_id SERIAL PRIMARY KEY
+
 SELECT * 
 FROM dept_manager
  
